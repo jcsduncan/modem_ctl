@@ -1,12 +1,6 @@
+#pragma once
+
 #include <utility>
-
-//
-// Created by dunx on 19/01/19.
-//
-
-#ifndef LEARNING_MODEM_H
-#define LEARNING_MODEM_H
-
 #include <string>
 #include "Serial.h"
 
@@ -20,12 +14,13 @@ public:
 };
 
 
-typedef struct modem_info {
+class ModemInfo {
+public:
     std::string manuf_id;
     std::string model_id;
     std::string revision;
     std::string serial_number;
-} modem_info;
+};
 
 
 class Modem : private Serial {
@@ -34,7 +29,7 @@ private:
 
     ModemResponse get_response();
 
-    std::unique_ptr<modem_info> info{new modem_info};
+    std::unique_ptr<ModemInfo> info{new ModemInfo};
 
     void echo_on(bool on);
 
@@ -61,5 +56,3 @@ public:
     void disconnect();
 };
 
-
-#endif //LEARNING_MODEM_H

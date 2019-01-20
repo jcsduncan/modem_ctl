@@ -1,7 +1,3 @@
-//
-// Created by dunx on 19/01/19.
-//
-
 #include "utils.h"
 
 // trim from start (in place)
@@ -16,5 +12,5 @@ std::string rtrim(std::string &&s) {
     s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
         return !std::isspace(ch);
     }).base(), s.end());
-    return std::move(s);
+    return s;
 }

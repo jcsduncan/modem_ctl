@@ -1,7 +1,3 @@
-//
-// Created by dunx on 17/01/19.
-//
-
 #include "Serial.h"
 #include <iostream>
 
@@ -15,7 +11,7 @@ std::string Serial::readline() {
         data.push_back(c);
     } while (c != delimiter);
 
-    return std::move(data);
+    return data;
 }
 
 void Serial::open() {

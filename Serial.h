@@ -1,17 +1,12 @@
-#include <utility>
-
-//
-// Created by dunx on 17/01/19.
-//
-
-#ifndef LEARNING_SERIAL_H
-#define LEARNING_SERIAL_H
+#pragma once
 
 #include <boost/asio/serial_port.hpp>
 #include <boost/asio.hpp>
 #include <string>
 #include <array>
 #include <mutex>
+#include <utility>
+
 
 class Serial {
     using io_service = boost::asio::io_service;
@@ -50,6 +45,3 @@ public:
     std::string com_port_name;
     unsigned int baudrate;
 };
-
-
-#endif //LEARNING_SERIAL_H

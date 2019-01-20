@@ -1,7 +1,3 @@
-//
-// Created by dunx on 19/01/19.
-//
-
 #include <ctime>
 #include <future>
 #include <thread>
@@ -21,7 +17,7 @@ ModemResponse Modem::get_response() {
         line = rtrim(readline());
         if (!line.empty()) {
             if (line == RESP_OK) {
-                return ModemResponse(responses, !(line == RESP_OK));
+                return ModemResponse(responses, false);
             } else if (line == RESP_ERROR) {
                 /*Todo: Custom exception. Parse extended modem errors */
                 throw (std::runtime_error("Command Error"));
