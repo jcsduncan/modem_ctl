@@ -1,7 +1,6 @@
 #include "Serial.h"
 #include <iostream>
 
-
 std::string Serial::readline() {
     std::string data;
     char c{};
