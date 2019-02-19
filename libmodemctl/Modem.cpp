@@ -5,10 +5,6 @@
 #include "at_commands.h"
 #include "utils.h"
 
-void Modem::send_at() {
-    send_command(CMD_AT);
-}
-
 ModemResponse Modem::get_response() {
     /*Todo: implement timeout*/
     std::vector<std::string> responses;
