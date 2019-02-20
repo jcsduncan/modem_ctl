@@ -6,12 +6,13 @@
 #include <array>
 #include <mutex>
 #include <utility>
-
+#include <condition_variable>
 
 class Serial {
     using io_service = boost::asio::io_service;
     using serial_port = boost::shared_ptr<boost::asio::serial_port>;
 protected:
+    std::condition_variable read_cv;
     virtual ~Serial() { close(); }; // destructor
 
     std::mutex mutex;
@@ -24,7 +25,8 @@ protected:
         return port_->write_some(boost::asio::buffer(std::string(data)));
     }
 
-    std::string readline();
+    std::string _readline();
+    std::string readline(int timeout = 1);
 
     void open();
 
